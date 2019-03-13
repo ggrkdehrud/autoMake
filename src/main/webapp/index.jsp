@@ -139,10 +139,12 @@
 			
 			//$("#main_right_middle").append(temp_query);
 			
+			var contents = "<div id = '1' style='width:100px;height:100px;background-color:red'></div>";
 			
+			$("#main_right_middle").append(contents);
 			// 현재 참조하고 있는 페이지가 무엇인지. 이건 가능할듯.
 			
-			
+			<%-- 
 			var aa = 
 			"<table>"
 			+"<tr>"
@@ -182,7 +184,7 @@
 			osw1.close();
 			fos1.close();
 			%>
-			
+			 --%>
 			
 		}else if(tempValue == 2){
 			$("#main_right_bottom").append(menuList[tempValue]);

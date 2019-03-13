@@ -13,6 +13,6 @@
 					<li><a href="#">Page 1-3</a></li>
 				</ul>
 			</li>
-		<li><a href="ㅇㅇㅇㅇ.jsp">ㅇㅇㅇㅇ</a></li></ul>
+		<li><a href="ㅋㅋ.jsp">ㅋㅋ</a></li></ul>
 	</div>
 </nav>

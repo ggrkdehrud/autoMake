@@ -120,7 +120,6 @@
 				String inStrPath = "C:\\Users\\USER\\Desktop\\STS\\workspace\\settingProject\\src\\main\\webapp\\index.jsp";
 				String strPath = "C:\\Users\\USER\\Desktop\\STS\\workspace\\settingProject\\src\\main\\webapp\\"+name+".jsp";
 				
-				
 				FileInputStream fis = new FileInputStream(inStrPath);
 				FileOutputStream fos = new FileOutputStream(strPath);
 				OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
@@ -138,11 +137,52 @@
 			%>
 		}else if(tempValue == 1){
 			
-			$("#main_right_middle").append(temp_query);
+			//$("#main_right_middle").append(temp_query);
 			
 			
+			// íì¬ ì°¸ì¡°íê³  ìë íì´ì§ê° ë¬´ìì¸ì§. ì´ê±´ ê°ë¥í ë¯.
+			
+			<%-- 
+			var aa = 
+			"<table>"
+			+"<tr>"
+			+"<td>ì ëª©</td><td>ë´ì©</td><td>ë ì§</td>"
+			+"</tr>"
+			+"<c:forEach var='item' items='%{list}'>"
+			+"<tr>"
+			+"<td></td><td></td><td></td>"
+			+"</tr>"
+			+"</c:forEach>"
+			+"</table>";
+			
+			$("#main_right_middle").append(aa);
 			
 			
+			<%
+			String aa = 
+			"<table>"
+			+"<tr>"
+			+"<td>ì ëª©</td><td>ë´ì©</td><td>ë ì§</td>"
+			+"</tr>"
+			+"<c:forEach var='item' items='%{list}'>"
+			+"<tr>"
+			+"<td></td><td></td><td></td>"
+			+"</tr>"
+			+"</c:forEach>"
+			+"</table>";
+			
+			// ì´ê³³ìì ìì¹ë¥¼ ì°¾ìì íì¼ë¡ ìì±íë¤.
+			String strPath1 = "C:\\Users\\USER\\Desktop\\STS\\workspace\\settingProject\\src\\main\\webapp\\header.jsp";
+				
+			FileOutputStream fos1 = new FileOutputStream(strPath1);
+			OutputStreamWriter osw1 = new OutputStreamWriter(fos1, "UTF-8");
+			BufferedWriter bw1 = new BufferedWriter(osw1);
+			bw1.write("ãã´ã");
+			bw1.flush();
+			osw1.close();
+			fos1.close();
+			%>
+			 --%>
 			
 		}else if(tempValue == 2){
 			$("#main_right_bottom").append(menuList[tempValue]);
