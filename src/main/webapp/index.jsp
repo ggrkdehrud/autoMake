@@ -139,7 +139,9 @@
 			
 			//$("#main_right_middle").append(temp_query);
 			
-			var contents = "<div id = '1' style='width:100px;height:100px;background-color:red'></div>";
+			var contents = "<div id = '1' style='width:100px;height:100px;background-color:red' on></div>";
+			
+			//top, top+left, bottom, bottom+left 좌표에서 1씩 추가한곳에 마우스가 올라온다면 마우스커서 이미지 변경.
 			
 			$("#main_right_middle").append(contents);
 			// 현재 참조하고 있는 페이지가 무엇인지. 이건 가능할듯.
