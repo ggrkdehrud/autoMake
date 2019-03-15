@@ -76,7 +76,72 @@
 			$("#circle").offset({top: x+middle_height - 110});
 			$("#circle").offset({left: y+middle_width - 110});
 		});
+		
+		nowObject = null;
+	    
+	    window.onmousemove = function(){
+	    	if(nowObject != null){
+	    		
+	    		// 현재 move mode 인지 resize 모드인지 none 모드인지 확인이 필요하다.
+	    		
+	    		
+	    		var width = nowObject.offsetWidth;
+	    		var height = nowObject.offsetHeight;
+	    		var top = nowObject.offsetTop;
+	    		var left = nowObject.offsetLeft;
+	    		
+	    		var x = event.pageX;
+	    		var y = event.pageY; 
+	    		var real_width = x - left; //(x, y 좌표가 필요)
+	    		var real_height = y - top; //(x, y 좌표가 필요)
+	    	
+	    		//마우스 좌표를 따라다니면서 계속 그려줘야 한다.
+	    		$(nowObject).css('width', real_width+"px");
+		    	$(nowObject).css('height', real_height+"px");
+		    	
+	    		window.onmouseup = function(){
+	    	    	nowObject = null;
+	    		}
+	    	}
+	    }
 	});
+	
+	function moveDiv(obj) {
+		var width = obj.offsetWidth;
+		var height = obj.offsetHeight;
+		var top = obj.offsetTop;
+		var left = obj.offsetLeft;
+		
+		var x = event.pageX;
+		var y = event.pageY; 
+		
+		if((x <= (left + width) && x >= ((left + width) -6)) && (y <= (top + height) && y >= ((top + height) -6))){
+			$(obj).css('cursor', 'nw-resize');
+			
+			obj.onmousedown = function(){
+				// 이곳에서 obj를 설정해줘야되. 개발모드라는 뜻. 내부에 값을 넣어놓진 말자 아직까진!
+				nowObject = obj;
+			}
+		}else{
+			$(obj).css('cursor', 'default');
+		}
+		
+		/* if((x <= (top + width) && x >= ((top + width) -6)) && (y <= (top + height) && y >= ((top + height) -6))){
+			$(obj).css('cursor', 'nw-resize');
+		}else if(){
+			
+		}else if(){
+		
+		}else if(){
+			
+		}else if(){
+			
+		}else if(){
+			
+		}else{
+			$(obj).css('cursor', 'default');
+		} */
+	}
 	
 	function fn_onClickMenu(menu){
 		var tempValue = menu.getAttribute("innerHTML");
@@ -139,7 +204,13 @@
 			
 			//$("#main_right_middle").append(temp_query);
 			
-			var contents = "<div id = '1' style='width:100px;height:100px;background-color:red' on></div>";
+			//var contents = "<div id = '1' style='width:100px;height:100px;background-color:red' on></div>";
+			
+			var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow' onmousemove = 'moveDiv(this)'>"
+				+"<table style = 'width:100%'><colgroup><col width='20%' /><col width='20%' /><col width='20%' /><col width='*' /><col width='20%' /></colgroup>"
+			    +"<thead><tr><th>Num</th><td>Name</td><td>ID</td><td>Mobile</td><td>Etc</td></tr></thead><tbody><tr><th>1</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
+			    +"<tr><th>2</th><td>Naul</td><td>BrowneyedSoul</td><td>010-1324-3546</td><td>Singer</td></tr><tr><th>3</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
+				+"</tbody></table></div>";
 			
 			//top, top+left, bottom, bottom+left 좌표에서 1씩 추가한곳에 마우스가 올라온다면 마우스커서 이미지 변경.
 			
