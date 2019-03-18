@@ -79,28 +79,130 @@
 		
 		nowObject = null;
 	    
-	    window.onmousemove = function(){
+		window.onmousemove = function(){
 	    	if(nowObject != null){
 	    		
-	    		// 현재 move mode 인지 resize 모드인지 none 모드인지 확인이 필요하다.
-	    		
-	    		
-	    		var width = nowObject.offsetWidth;
-	    		var height = nowObject.offsetHeight;
-	    		var top = nowObject.offsetTop;
-	    		var left = nowObject.offsetLeft;
-	    		
-	    		var x = event.pageX;
-	    		var y = event.pageY; 
-	    		var real_width = x - left; //(x, y 좌표가 필요)
-	    		var real_height = y - top; //(x, y 좌표가 필요)
-	    	
-	    		//마우스 좌표를 따라다니면서 계속 그려줘야 한다.
-	    		$(nowObject).css('width', real_width+"px");
-		    	$(nowObject).css('height', real_height+"px");
+	    		//현재 move mode 인지 resize 모드인지 none 모드인지 확인이 필요하다.
+	    		if(nowObject.value == "move"){
+	    			//현재 좌표랑 비교해서 움직여주는 작업이 필요.
+	    			//top, left 좌표.
+	    			
+	    			
+	    			var x = event.pageX;
+		    		var y = event.pageY;
+		    		
+		    		var real_distance_x = nowObject.click_x - nowObject.left;
+		    		var real_distance_y = nowObject.click_y - nowObject.top;
+		    		
+		    		$(nowObject).offset({top: y - real_distance_y});
+		    		$(nowObject).offset({left: x - real_distance_x});
+			    	
+		    		window.onmouseup = function(){
+		    			if(nowObject != null){
+		    				nowObject.value = "none";
+		    			}
+		    			nowObject = null;
+		    		}
+	    			
+	    		}else if(nowObject.value == "resize-r-b"){
+	    			var width = nowObject.offsetWidth;
+		    		var height = nowObject.offsetHeight;
+		    		var top = nowObject.offsetTop;
+		    		var left = nowObject.offsetLeft;
+		    		
+		    		var x = event.pageX;
+		    		var y = event.pageY; 
+		    		var real_width = x - left;
+		    		var real_height = y - top;
 		    	
-	    		window.onmouseup = function(){
-	    	    	nowObject = null;
+		    		//마우스 좌표를 따라다니면서 계속 그려줘야 한다.
+		    		$(nowObject).css('width', real_width+"px");
+			    	$(nowObject).css('height', real_height+"px");
+			    	
+		    		window.onmouseup = function(){
+		    			if(nowObject != null){
+		    				nowObject.value = "none";
+		    			}
+		    			nowObject = null;
+		    		}
+	    		}else if(nowObject.value == "resize-l-u"){
+	    			var width = nowObject.offsetWidth;
+		    		var height = nowObject.offsetHeight;
+		    		var top = nowObject.offsetTop;
+		    		var left = nowObject.offsetLeft;
+		    		
+		    		var x = event.pageX;
+		    		var y = event.pageY; 
+		    		//var real_width = x - left;
+		    		//var real_height = y - top;
+		    		
+		    		
+		    		//좌표를 움직이면서 그려야 한다.
+		    		var real_width = (left - x) + width;
+		    		var real_height = (top - y) + height;
+		    		
+		    		$(nowObject).offset({top: y});
+		    		$(nowObject).offset({left: x});
+		    		//마우스 좌표를 따라다니면서 계속 그려줘야 한다.
+		    		$(nowObject).css('width', real_width+"px");
+			    	$(nowObject).css('height', real_height+"px");
+			    	
+		    		window.onmouseup = function(){
+		    			if(nowObject != null){
+		    				nowObject.value = "none";
+		    			}
+		    			nowObject = null;
+		    		}
+	    		}else if(nowObject.value == "resize-r-u"){
+	    			var width = nowObject.offsetWidth;
+		    		var height = nowObject.offsetHeight;
+		    		var top = nowObject.offsetTop;
+		    		var left = nowObject.offsetLeft;
+		    		
+		    		var x = event.pageX;
+		    		var y = event.pageY; 
+		    		
+		    		//좌표를 움직이면서 그려야 한다.
+		    		var real_width = x - left;
+		    		var real_height = (top - y) + height;
+
+		    		$(nowObject).offset({top: y});
+		    		
+		    		//마우스 좌표를 따라다니면서 계속 그려줘야 한다.
+		    		$(nowObject).css('width', real_width+"px");
+			    	$(nowObject).css('height', real_height+"px");
+			    	
+		    		window.onmouseup = function(){
+		    			if(nowObject != null){
+		    				nowObject.value = "none";
+		    			}
+		    			nowObject = null;
+		    		}
+	    		}else if(nowObject.value == "resize-l-b"){
+	    			var width = nowObject.offsetWidth;
+		    		var height = nowObject.offsetHeight;
+		    		var top = nowObject.offsetTop;
+		    		var left = nowObject.offsetLeft;
+		    		
+		    		var x = event.pageX;
+		    		var y = event.pageY; 
+		    		
+		    		//좌표를 움직이면서 그려야 한다.
+		    		var real_width = (left - x) + width;
+		    		var real_height = y - top;
+		    		
+		    		$(nowObject).offset({left: x});
+		    		
+		    		//마우스 좌표를 따라다니면서 계속 그려줘야 한다.
+		    		$(nowObject).css('width', real_width+"px");
+			    	$(nowObject).css('height', real_height+"px");
+			    	
+		    		window.onmouseup = function(){
+		    			if(nowObject != null){
+		    				nowObject.value = "none";
+		    			}
+		    			nowObject = null;
+		    		}
 	    		}
 	    	}
 	    }
@@ -113,18 +215,57 @@
 		var left = obj.offsetLeft;
 		
 		var x = event.pageX;
-		var y = event.pageY; 
+		var y = event.pageY;
+		
+		obj.onmousedown = function(){
+			// 이곳에서 obj를 설정해줘야되. 개발모드라는 뜻. 내부에 값을 넣어놓진 말자 아직까진!
+			var click_x = event.pageX;
+			var click_y = event.pageY; 
+			
+			nowObject = obj;
+			nowObject.value = "move";
+			nowObject.top = top;
+			nowObject.left = left;
+			nowObject.click_x = click_x;
+			nowObject.click_y = click_y;
+		}
 		
 		if((x <= (left + width) && x >= ((left + width) -6)) && (y <= (top + height) && y >= ((top + height) -6))){
 			$(obj).css('cursor', 'nw-resize');
-			
+			//우측 하단
 			obj.onmousedown = function(){
-				// 이곳에서 obj를 설정해줘야되. 개발모드라는 뜻. 내부에 값을 넣어놓진 말자 아직까진!
+				// nowObject.value 이름을 통해서 동서남북도 확인할 수 있다.
 				nowObject = obj;
+				nowObject.value = "resize-r-b";
+			}
+		}else if((x >= (left) && x <= ((left) +7)) && ( y >= (top) && y <= ((top) +7))){
+			$(obj).css('cursor', 'nw-resize');
+			//좌측 상단
+			obj.onmousedown = function(){
+				// nowObject.value 이름을 통해서 동서남북도 확인할 수 있다.
+				nowObject = obj;
+				nowObject.value = "resize-l-u";
+			}
+		}else if(((x >= (left + width) -7) && x <= (left + width)) && (( y <= (top) +7) && ( y >= (top)))){
+			$(obj).css('cursor', 'ne-resize');
+			//우측 상단
+			obj.onmousedown = function(){
+				// nowObject.value 이름을 통해서 동서남북도 확인할 수 있다.
+				nowObject = obj;
+				nowObject.value = "resize-r-u";
+			}
+		}else if(((x >= (left)) && (x <= (left) +7)) && ((y <= (top + height)) && y >= (top + height) -7)){
+			$(obj).css('cursor', 'ne-resize');
+			//우측 하단
+			obj.onmousedown = function(){
+				// nowObject.value 이름을 통해서 동서남북도 확인할 수 있다.
+				nowObject = obj;
+				nowObject.value = "resize-l-b";
 			}
 		}else{
 			$(obj).css('cursor', 'default');
 		}
+		
 		
 		/* if((x <= (top + width) && x >= ((top + width) -6)) && (y <= (top + height) && y >= ((top + height) -6))){
 			$(obj).css('cursor', 'nw-resize');
