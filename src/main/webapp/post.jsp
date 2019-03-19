@@ -158,7 +158,7 @@
 	    +"<tr><th>2</th><td>Naul</td><td>BrowneyedSoul</td><td>010-1324-3546</td><td>Singer</td></tr><tr><th>3</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 		+"</tbody></table></div>"; */
 		
-		var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow; overflow:auto' onmouseenter = 'clickDiv(this)' onmousemove = 'moveDiv(this)'>"
+		var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow; overflow:auto' onmousemove = 'moveDiv(this)'>"
 		+"<div style='width:200px; height:150px; background-color:red; display:inlie-block; float: left'></div>"
 		+"<div style='width:200px; height:150px; background-color:blue; display:inlie-block; float: left'></div>"
 		+"<div style='width:200px; height:150px; background-color:green; display:inlie-block; float: left'></div>"
