@@ -265,23 +265,6 @@
 		}else{
 			$(obj).css('cursor', 'default');
 		}
-		
-		
-		/* if((x <= (top + width) && x >= ((top + width) -6)) && (y <= (top + height) && y >= ((top + height) -6))){
-			$(obj).css('cursor', 'nw-resize');
-		}else if(){
-			
-		}else if(){
-		
-		}else if(){
-			
-		}else if(){
-			
-		}else if(){
-			
-		}else{
-			$(obj).css('cursor', 'default');
-		} */
 	}
 	
 	function fn_onClickMenu(menu){
@@ -306,7 +289,6 @@
 				return;
 			}
 			
-			
 			frm.target = "por"; // iframe의 이름
 			frm.action = "index.jsp?name="+input;
 			frm.submit();
@@ -323,8 +305,10 @@
 				
 				//index.jsp의 모든 것을 복사하고 다시 붙여넣기? 조금 더 효율적인 방법은 없을까?
 				int data;
-				String inStrPath = "C:\\Users\\USER\\Desktop\\STS\\workspace\\settingProject\\src\\main\\webapp\\index.jsp";
-				String strPath = "C:\\Users\\USER\\Desktop\\STS\\workspace\\settingProject\\src\\main\\webapp\\"+name+".jsp";
+				String basicPath = this.getClass().getResource("").getPath();
+				basicPath = basicPath.substring(1, basicPath.indexOf(".metadata"));
+				String inStrPath = basicPath+"\\settingProject\\src\\main\\webapp\\index.jsp";
+				String strPath = basicPath+"\\settingProject\\src\\main\\webapp\\"+name+".jsp";
 				
 				FileInputStream fis = new FileInputStream(inStrPath);
 				FileOutputStream fos = new FileOutputStream(strPath);
@@ -347,18 +331,24 @@
 			
 			//var contents = "<div id = '1' style='width:100px;height:100px;background-color:red' on></div>";
 			
-			var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow' onmousemove = 'moveDiv(this)'>"
+			/* var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow' onmousemove = 'moveDiv(this)'>"
 				+"<table style = 'width:100%'><colgroup><col width='20%' /><col width='20%' /><col width='20%' /><col width='*' /><col width='20%' /></colgroup>"
 			    +"<thead><tr><th>Num</th><td>Name</td><td>ID</td><td>Mobile</td><td>Etc</td></tr></thead><tbody><tr><th>1</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 			    +"<tr><th>2</th><td>Naul</td><td>BrowneyedSoul</td><td>010-1324-3546</td><td>Singer</td></tr><tr><th>3</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 				+"</tbody></table></div>";
-			
+				 */
 			//top, top+left, bottom, bottom+left 좌표에서 1씩 추가한곳에 마우스가 올라온다면 마우스커서 이미지 변경.
+			
+			var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow; overflow:auto' onmousemove = 'moveDiv(this)'>"
+				+"<div style='width:200px; height:150px; background-color:red; display:inlie-block; float: left'></div>"
+				+"<div style='width:200px; height:150px; background-color:blue; display:inlie-block; float: left'></div>"
+				+"<div style='width:200px; height:150px; background-color:green; display:inlie-block; float: left'></div>"
+				+"</div>";
+		
 			
 			$("#main_right_middle").append(contents);
 			// 현재 참조하고 있는 페이지가 무엇인지. 이건 가능할듯.
-			
-			<%-- 
+			/* 
 			var aa = 
 			"<table>"
 			+"<tr>"
@@ -370,36 +360,7 @@
 			+"</tr>"
 			+"</c:forEach>"
 			+"</table>";
-			
-			$("#main_right_middle").append(aa);
-			
-			
-			<%
-			String aa = 
-			"<table>"
-			+"<tr>"
-			+"<td>제목</td><td>내용</td><td>날짜</td>"
-			+"</tr>"
-			+"<c:forEach var='item' items='%{list}'>"
-			+"<tr>"
-			+"<td></td><td></td><td></td>"
-			+"</tr>"
-			+"</c:forEach>"
-			+"</table>";
-			
-			// 이곳에서 위치를 찾아서 파일로 작성한다.
-			String strPath1 = "C:\\Users\\USER\\Desktop\\STS\\workspace\\settingProject\\src\\main\\webapp\\header.jsp";
-				
-			FileOutputStream fos1 = new FileOutputStream(strPath1);
-			OutputStreamWriter osw1 = new OutputStreamWriter(fos1, "UTF-8");
-			BufferedWriter bw1 = new BufferedWriter(osw1);
-			bw1.write("ㅁㄴㅇ");
-			bw1.flush();
-			osw1.close();
-			fos1.close();
-			%>
-			 --%>
-			
+			 */
 		}else if(tempValue == 2){
 			$("#main_right_bottom").append(menuList[tempValue]);
 		}else if(tempValue == 3){
@@ -417,7 +378,9 @@
 			if(header_content != null){
 				String header_contents = "<%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8'"+"% >".replaceAll(" ", "")+"\n"+URLDecoder.decode(header_content,"UTF-8").trim();
 				
-				String strPath = "C:\\Users\\USER\\Desktop\\STS\\workspace\\settingProject\\src\\main\\webapp\\header.jsp";
+				String basicPath = this.getClass().getResource("").getPath();
+				basicPath = basicPath.substring(1, basicPath.indexOf(".metadata"));
+				String strPath = basicPath+"\\settingProject\\src\\main\\webapp\\header.jsp";
 				
 				FileOutputStream fos = new FileOutputStream(strPath);
 				OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");

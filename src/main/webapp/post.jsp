@@ -152,13 +152,13 @@
 	});
 
 	function kalhoon() {
-		/* var content = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow' onmousemove = 'moveDiv(this)'>"
+		/* var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow' onmousemove = 'moveDiv(this)'>"
 		+"<table style = 'width:100%'><colgroup><col width='20%' /><col width='20%' /><col width='20%' /><col width='*' /><col width='20%' /></colgroup>"
 	    +"<thead><tr><th>Num</th><td>Name</td><td>ID</td><td>Mobile</td><td>Etc</td></tr></thead><tbody><tr><th>1</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 	    +"<tr><th>2</th><td>Naul</td><td>BrowneyedSoul</td><td>010-1324-3546</td><td>Singer</td></tr><tr><th>3</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 		+"</tbody></table></div>"; */
 		
-		var content = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow; overflow:auto' onmousemove = 'moveDiv(this)'>"
+		var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow; overflow:auto' onmouseenter = 'clickDiv(this)' onmousemove = 'moveDiv(this)'>"
 		+"<div style='width:200px; height:150px; background-color:red; display:inlie-block; float: left'></div>"
 		+"<div style='width:200px; height:150px; background-color:blue; display:inlie-block; float: left'></div>"
 		+"<div style='width:200px; height:150px; background-color:green; display:inlie-block; float: left'></div>"
@@ -166,17 +166,20 @@
 		
 		//var content = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow' onmousemove = 'enterDiv(this)'></div>";
 		
-		$("#temp").append(content);
+		$("#temp").append(contents);
 		$("#add").offset({top: 100});
 		$("#add").offset({left: 50});
 	}
 
-	function clickDiv() {
-
+	function clickDiv(obj) {
+		console.log("####");
+		
+		console.log(obj);
 		/* $("#add").css("width", "700px");
 		$("#add").css("height", "700px");
 		 */
-		
+		//이런식으로 특정 객체를 삭제할 수 있다.
+		//$(obj).remove();
 
 	}
 	
@@ -237,26 +240,6 @@
 		}else{
 			$(obj).css('cursor', 'default');
 		}
-		
-		/* if((x <= (top + width) && x >= ((top + width) -6)) && (y <= (top + height) && y >= ((top + height) -6))){
-			$(obj).css('cursor', 'nw-resize');
-		}else if(){
-			
-		}else if(){
-		
-		}else if(){
-			
-		}else if(){
-			
-		}else if(){
-			
-		}else{
-			$(obj).css('cursor', 'default');
-		} */
-	}
-	
-	function outDiv(obj){
-		console.log("zzzzz")
 	}
 	
 </script>

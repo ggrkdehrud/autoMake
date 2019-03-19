@@ -1,5 +1,7 @@
 package set.set.set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -54,6 +56,10 @@ public class HomeController {
     @PostMapping("/enroll")
     public ResponseEntity enrollPhoto(@RequestParam(value = "path", required = true) String path) throws Exception{
         System.out.println(path);
+
+        String path1 = this.getClass().getResource("").getPath();
+		path1 = path1.substring(1, path1.indexOf(".metadata"));
+		System.out.println(path1);
     	//managementService.modifyFilebeatConf(path);
         return new ResponseEntity(HttpStatus.OK);
     }
