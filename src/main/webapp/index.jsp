@@ -326,25 +326,18 @@
 			}
 			%>
 		}else if(tempValue == 1){
-			
-			//$("#main_right_middle").append(temp_query);
-			
-			//var contents = "<div id = '1' style='width:100px;height:100px;background-color:red' on></div>";
-			
 			/* var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow' onmousemove = 'moveDiv(this)'>"
 				+"<table style = 'width:100%'><colgroup><col width='20%' /><col width='20%' /><col width='20%' /><col width='*' /><col width='20%' /></colgroup>"
 			    +"<thead><tr><th>Num</th><td>Name</td><td>ID</td><td>Mobile</td><td>Etc</td></tr></thead><tbody><tr><th>1</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 			    +"<tr><th>2</th><td>Naul</td><td>BrowneyedSoul</td><td>010-1324-3546</td><td>Singer</td></tr><tr><th>3</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 				+"</tbody></table></div>";
 				 */
-			//top, top+left, bottom, bottom+left 좌표에서 1씩 추가한곳에 마우스가 올라온다면 마우스커서 이미지 변경.
-			
+				 
 			var contents = "<div id = 'add' style = 'width:400px; height:400px; background-color:yellow; overflow:auto' onmousemove = 'moveDiv(this)'>"
 				+"<div style='width:200px; height:150px; background-color:red; display:inlie-block; float: left'></div>"
 				+"<div style='width:200px; height:150px; background-color:blue; display:inlie-block; float: left'></div>"
 				+"<div style='width:200px; height:150px; background-color:green; display:inlie-block; float: left'></div>"
 				+"</div>";
-		
 			
 			$("#main_right_middle").append(contents);
 			// 현재 참조하고 있는 페이지가 무엇인지. 이건 가능할듯.
