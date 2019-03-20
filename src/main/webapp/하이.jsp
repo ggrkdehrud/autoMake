@@ -50,6 +50,8 @@
 <form name="frm" method="post" action="" style="display:none"></form>
 
 <script type="text/javascript">
+	var myMap = new Map();
+	
 	$(document).ready(function() {
 		var object = document.getElementById("main_right_middle");
 		var x = object.offsetTop;
@@ -296,17 +298,16 @@
 			//ìë ¥ë°ì¼ë©´ì ì¢ë¥ë¥¼ ë¤ì ì§ì í  ì ìë¤.
 			//ì½¤ë³´ë°ì¤ë¡ ê²ìí, ì¬ì§ ë±ë±..
 			var input = prompt('Message');
+			//length ì²´í¬ë¥¼ í´ì¤ì¼ íë¤.
 			
-			if(input.length == 0){
-				alert("ìë ¥í´ì£¼ì¸ì");
+			
+			if(myMap.get(input) == undefined){
+				//jsp íì¼ëªì ì´ë»ê² í ê²ì¸ê°?
+				myMap.set(input, '1');
+			}else{
+				//ì´ê³³ìì  íê²¨ë´ì¼ íë¤.
+				alert("ì´ë¯¸ ëì¼í ì´ë¦ì ì¹´íê³ ë¦¬ê° ì¡´ì¬í©ëë¤.");
 				return;
-			}
-			
-			for(i = 0; i < $(".navbar-nav").children().length; i++){
-				if(input == $(".navbar-nav").children()[2].children[0].text){
-					alert("ì´ë¯¸ ëì¼í ì´ë¦ì ì¹´íê³ ë¦¬ê° ì¡´ì¬í©ëë¤.");
-					return;
-				}
 			}
 			
 			frm.target = "por"; // iframeì ì´ë¦

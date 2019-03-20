@@ -13,6 +13,6 @@
 					<li><a href="#">Page 1-3</a></li>
 				</ul>
 			</li>
-		<li><a href="ㅋㅋ.jsp">ㅋㅋ</a></li></ul>
+		<li onmousedown="fn_liDown(this)"><a href="하이.jsp">하이</a></li><li onmousedown="fn_liDown(this)"><a href="ㅋㅋ.jsp">ㅋㅋ</a></li></ul>
 	</div>
 </nav>
