@@ -23,16 +23,16 @@
 		
 		</div>
 		<div class = "main_left_menu" innerHTML = "0" style = "" onclick = fn_onClickMenu(this)>
-			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border: 1px solid #444444;text-align: center;">카테고리 생성</div></a>
+			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border: 1px solid #444444;text-align: center;">ì¹´íê³ ë¦¬ ìì±</div></a>
 		</div>
 		<div class = "main_left_menu" innerHTML = "1" style = "" onclick = fn_onClickMenu(this)>
-			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border-left: 1px solid #444444;border-bottom: 1px solid #444444;border-right: 1px solid #444444;text-align: center;">테이블 생성</div></a>
+			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border-left: 1px solid #444444;border-bottom: 1px solid #444444;border-right: 1px solid #444444;text-align: center;">íì´ë¸ ìì±</div></a>
 		</div>
 		<div class = "main_left_menu" innerHTML = "2" style = "" onclick = fn_onClickMenu(this)>
-			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border-left: 1px solid #444444;border-bottom: 1px solid #444444;border-right: 1px solid #444444;text-align: center;">사진첩 생성</div></a>
+			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border-left: 1px solid #444444;border-bottom: 1px solid #444444;border-right: 1px solid #444444;text-align: center;">ì¬ì§ì²© ìì±</div></a>
 		</div>
 		<div class = "main_left_menu" innerHTML = "3" style = "" onclick = fn_onClickMenu(this)>
-			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border-left: 1px solid #444444;border-bottom: 1px solid #444444;border-right: 1px solid #444444;text-align: center;">저장</div></a>
+			<a href="#" style="text-decoration:none"><div style="width:100%; height:100%; border-left: 1px solid #444444;border-bottom: 1px solid #444444;border-right: 1px solid #444444;text-align: center;">ì ì¥</div></a>
 		</div>
 	</div>
 	
@@ -61,13 +61,11 @@ $(document).ready(function() {
 	var y = object.offsetLeft;
 	var middle_width = object.offsetWidth;
 	var middle_height = object.offsetHeight;
-	var scrollT = $(this).scrollTop();
-	var scrollW = $(this).width();
-	var scrollH = $(window).height();
-	nowObject = null;
-	
-	$("#circle").offset({top: scrollT+scrollH - 150});
-	$("#circle").offset({left: scrollW - 150});
+
+	var circle = document.getElementById("circle");
+
+	$("#circle").offset({top: x+middle_height - 110});
+	$("#circle").offset({left: y+middle_width - 110});
 
 	$(window).resize(function() {
 		var object = document.getElementById("main_right_middle");
@@ -75,23 +73,14 @@ $(document).ready(function() {
 		var y = object.offsetLeft;
 		var middle_width = object.offsetWidth;
 		var middle_height = object.offsetHeight;
-		var scrollT = $(this).scrollTop();
-		var scrollW = $(this).width();
-		var scrollH = $(this).height();
-		
-		$("#circle").offset({top: scrollT+scrollH - 150});
-		$("#circle").offset({left: scrollW - 150});
+
+		var circle = document.getElementById("circle");
+
+		$("#circle").offset({top: x+middle_height - 110});
+		$("#circle").offset({left: y+middle_width - 110});
 	});
-	
-	$(window).scroll(function() {
-		var scrollT = $(this).scrollTop();
-		var scrollW = $(this).width();
-		var scrollH = $(this).height();
-        
-        $("#circle").offset({top: scrollT+scrollH - 150});
-		$("#circle").offset({left: scrollW - 150});
-        
-	});
+
+	nowObject = null;
 });
 </script>
 </body>
