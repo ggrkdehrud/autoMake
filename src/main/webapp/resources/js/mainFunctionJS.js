@@ -12,10 +12,9 @@ function fn_liDown(obj){
 }
 
 function fn_onFocus(obj){
-	$("div").click(function() {
-		  $("div").not(obj).css("z-index", "1")
-		  $(obj).css("z-index", "2")
-	});
+	console.log("##");
+	$("div").not(obj).css("z-index", "1");
+	$(obj).css("z-index", "2");
 }
 
 function fn_addPhoto(){

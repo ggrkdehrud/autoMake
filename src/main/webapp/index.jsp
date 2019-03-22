@@ -46,7 +46,7 @@
 		</div>
 		
 		<div id = "main_right_bottom">
-			
+			<img src = "/resources/images/bottom.png" width = "100%" height = "100%">
 		</div>
 	</div>
 </div>
@@ -65,6 +65,7 @@ $(document).ready(function() {
 	var scrollW = $(this).width();
 	var scrollH = $(window).height();
 	nowObject = null;
+	nowInnerObject = null;
 	
 	$("#circle").offset({top: scrollT+scrollH - 150});
 	$("#circle").offset({left: scrollW - 150});

@@ -77,16 +77,17 @@
 			}
 			%>
 		}else if(tempValue == 1){
-			var contents = "<div id = 'add' onclick = 'fn_onFocus(this)' style = 'width:400px; height:400px; border: 1px solid black; position: absolute' onmouseenter = 'fn_enterDiv(this)' onmouseout = 'fn_outDiv(this)'>"
+			var contents = "<div id = 'outer_board' style = 'width:100%; height:400px; border: 1px solid black; background-color: white' onmousemove = 'zzz(this)' onmouseout = 'fn_outDiv(this)'>"
+				+"<div id = 'inner_board' style = 'z-index: 2; width:350px; height:350px; border: 1px solid black; background-color: white' onmousemove = 'zzz(this)' onmouseout = 'fn_outDiv(this)'>"
 				+"<table style = 'width:100%; height: 100%; text-align: center; margin-left: auto; margin-right: auto;'><colgroup><col width='20%' /><col width='20%' /><col width='20%' /><col width='*' /><col width='20%' /></colgroup>"
 			    +"<thead><tr><th>Num</th><td>Name</td><td>ID</td><td>Mobile</td><td>Etc</td></tr></thead><tbody><tr><th>1</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
 			    +"<tr><th>2</th><td>Naul</td><td>BrowneyedSoul</td><td>010-1324-3546</td><td>Singer</td></tr><tr><th>3</th><td>Ingza</td><td>INGZA</td><td>010-1234-5678</td><td>Publisher</td></tr>"
-				+"</tbody></table></div>";
+				+"</tbody></table></div></div>";
 
 			$("#main_right_middle").append(contents);
 			// 현재 참조하고 있는 페이지가 무엇인지. 이건 가능할듯.
 		}else if(tempValue == 2){
-			var contents = "<div id = 'add' onclick = 'fn_onFocus(this)' style = 'width:800px; height:800px; border: 1px solid black; overflow:auto; position: absolute' onmouseenter = 'fn_enterDiv(this)' onmouseout = 'fn_outDiv(this)'>"
+			var contents = "<div id = 'add' style = 'width:800px; height:800px; border: 1px solid black; background-color: white' onmouseenter = 'fn_enterDiv(this)' onmouseout = 'fn_outDiv(this)'>"
 				+"<div style='width:200px; height:250px; display:inlie-block; float: left'><div style='width:182px; height: 230px'><img src='resources\\images\\1.jpg' width=100% height=100%></div></div>"
 				+"<div style='width:200px; height:250px; display:inlie-block; float: left'><div style='width:182px; height: 230px'><img src='resources\\images\\2.jpg' width=100% height=100%></div></div>"
 				+"<div style='width:200px; height:250px; display:inlie-block; float: left'><div style='width:182px; height: 230px'><img src='resources\\images\\3.jpg' width=100% height=100%></div></div>"
