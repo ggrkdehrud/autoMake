@@ -33,11 +33,11 @@ function zzz(obj){
 	var top = obj.offsetTop;
 	var left = obj.offsetLeft;
 	
-	if(obj.id == "inner_board"){
+	/*if(obj.id == "inner_board"){
 		console.log("X: "+x);
 		console.log("result: "+(left));
 		console.log("inner: "+$("#inner_board").offset().left);
-	}
+	}*/
 	if((x <= (left + width) && x >= ((left + width) -7)) && (y <= (top + height) && y >= ((top + height) -7))){
 		$("#main").css('cursor', 'nw-resize');
 		//우측 하단
@@ -285,7 +285,7 @@ function fn_enterDiv(obj){
 		var top = obj.offsetTop;
 		var left = obj.offsetLeft;
 		
-		console.log(obj);
+		//console.log(obj);
 		
 		if((x <= (left + width) && x >= ((left + width) -7)) && (y <= (top + height) && y >= ((top + height) -7))){
 			$("#main").css('cursor', 'nw-resize');

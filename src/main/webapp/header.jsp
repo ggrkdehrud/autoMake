@@ -19,6 +19,6 @@
 					<li><a href="#">Page 1-3</a></li>
 				</ul>
 			</li>
-		<li onmousedown="fn_liDown(this)"><a href="히릿.jsp">히릿</a></li></ul>
+        <li onmousedown="fn_liDown(this)"><a href="히릿.jsp">히릿</a></li></ul>
 	</div>
 </nav>
