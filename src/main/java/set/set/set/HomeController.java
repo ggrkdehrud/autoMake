@@ -1,7 +1,10 @@
 package set.set.set;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 
@@ -9,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -148,11 +153,14 @@ public class HomeController {
 		homeBean.setTitle("title");
 		homeBean.setContent("content");
 		
-		homeService.readData(homeBean);
+		homeService.readAllData();
+		
+		
 		
 		HashMap<String, String> a1 = new HashMap<String, String>();
-		a1.put("cntView", "1");
-		a1.put("content", "zkzkzkzk");
+		a1.put("id", "ggrkdehrud");
+		a1.put("title", "good");
+		a1.put("title", "nice to meet you");
 		
 		ResponseEntity<HashMap<String, String>> rs = new ResponseEntity<HashMap<String, String>>(a1, HttpStatus.OK);
 		

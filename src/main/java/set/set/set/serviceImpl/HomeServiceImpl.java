@@ -1,6 +1,7 @@
 package set.set.set.serviceImpl;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
@@ -14,48 +15,30 @@ import set.set.set.service.HomeService;
 public class HomeServiceImpl implements HomeService{
 	
 	@Resource(name="HomeDao")
-	private HomeDao HomeDao;
+	private HomeDao homeDao;
 	
 	@Override
-	public HomeBean readData(HomeBean homeBean) {
-		HomeBean newHomeBean = null;
-		try {
-			newHomeBean = new HomeBean();
-			Method[] methods = homeBean.getClass().getMethods();
-			
-			for(Method method : methods) {
-				if(method.getName().contains("get")) {
-					if(method.getName().equals("getClass")) {
-						continue;
-					}
-					String nowMethod = method.getName().replaceAll("get", "set");
-					newHomeBean.getClass().getMethod(nowMethod, method.getReturnType())
-					.invoke(newHomeBean, homeBean.getClass().getMethod(method.getName())
-							.invoke(homeBean));
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return newHomeBean;
+	public ArrayList<HomeBean> readAllData() {
+		return homeDao.readAllData();
+	}
+	
+	@Override
+	public HomeBean readData(String primaryKey) {
+		return homeDao.readData(primaryKey);
 	}
 
 	@Override
 	public void insertData(HomeBean homeBean) {
-		// TODO Auto-generated method stub
-		
+		homeDao.insertData(homeBean);
 	}
 
 	@Override
 	public void deleteData(HomeBean homeBean) {
-		// TODO Auto-generated method stub
-		
+		homeDao.deleteData(homeBean);
 	}
 
 	@Override
 	public void updateData(HomeBean homeBean) {
-		// TODO Auto-generated method stub
-		
+		homeDao.updateData(homeBean);
 	}
 }

@@ -15,9 +15,13 @@ function fn_outDiv(obj){
 	}
 }
 
-function zzz(obj){
+function fn_moveDiv(obj){
+	
+	
+	
 	if(obj.id == "inner_board"){
 		nowInnerObject = obj;
+		//obj.children[0].children[1].children[0].children
 	}else{
 		if(nowInnerObject != null){
 			return false;
@@ -41,9 +45,14 @@ function zzz(obj){
 	if((x <= (left + width) && x >= ((left + width) -7)) && (y <= (top + height) && y >= ((top + height) -7))){
 		$("#main").css('cursor', 'nw-resize');
 		//우측 하단
-		console.log("@@@");
+		
 		obj.onmousedown = function(){
 			if(obj.id == "inner_board"){
+				if(event.which == 3){
+					$('#myModal').modal(true);
+					return false;
+				}
+				
 				nowInnerObject = obj;
 			}else{
 				if(nowInnerObject != null){
@@ -85,6 +94,11 @@ function zzz(obj){
 
 		obj.onmousedown = function(){
 			if(obj.id == "inner_board"){
+				if(event.which == 3){
+					$('#myModal').modal(true);
+					return false;
+				}
+				
 				nowInnerObject = obj;
 			}else{
 				if(nowInnerObject != null){
@@ -127,6 +141,11 @@ function zzz(obj){
 		//우측 상단
 		obj.onmousedown = function(){
 			if(obj.id == "inner_board"){
+				if(event.which == 3){
+					$('#myModal').modal(true);
+					return false;
+				}
+				
 				nowInnerObject = obj;
 			}else{
 				if(nowInnerObject != null){
@@ -169,6 +188,11 @@ function zzz(obj){
 		//우측 하단
 		obj.onmousedown = function(){
 			if(obj.id == "inner_board"){
+				if(event.which == 3){
+					$('#myModal').modal(true);
+					return false;
+				}
+				
 				nowInnerObject = obj;
 			}else{
 				if(nowInnerObject != null){
@@ -211,6 +235,27 @@ function zzz(obj){
 
 		obj.onmousedown = function(){
 			if(obj.id == "inner_board"){
+				if(event.which == 3){
+					//열릴 때 이게 어떤 obj인지 심어줘야 한다.
+					$('#myModal .modal-footer').eq(0)[0].value = obj;
+					$('#myModal .modal-body').eq(0).html("");
+					
+					for(var i = 0; i < obj.children[0].children[1].children[0].children.length; i++){						
+						var body_content = "<div class='form-group' draggable='true' ondragstart='fn_dragStartTableField(event, this)' ondragover='fn_onMouseEnterTableField(event, this)' ondragend='fn_dragEndTableField(event)''>"
+						+"<label for='us'>항목</label>"
+						+"<input type='text' class='form-control' id='usr_kor' value='"+obj.children[0].children[1].children[0].children[i].innerText+"'>"
+						+"<input type='button' class='btn btn-danger' onclick='fn_deleteValue(this)' value='삭제'>"
+						+"</div>";
+						
+						$('#myModal .modal-body').eq(0).append(body_content);
+					}
+					
+					$('#myModal .modal-body').eq(0).append("<input type='button' class='btn btn-success' onclick='fn_addValue(this)' value='추가'>");
+					
+					$('#myModal').modal(true);
+					return false;
+				}
+				
 				nowInnerObject = obj;
 			}else{
 				if(nowInnerObject != null){
@@ -239,18 +284,15 @@ function zzz(obj){
 				var real_distance_y = click_y - top;
 				
 				if(obj.id == "outer_board"){
-					//var inner_board1 = document.getElementById('inner_board');
 					var inner_board = $("#inner_board");
-					//var temp_top = inner_board.offset().top;
-					//var temp_left = inner_board.offset().left;
-					//console.log(inner_board.offset().top);
-					//inner_board1.style.top = 50+'px';
-					//inner_board1.style.left = 50+'px';
-					inner_board.offset({top: 50});
-					inner_board.offset({left: 50});
+					
+					//inner_board.offset 의 현재좌표를 구해서 설정해줘야 한다.
+					
+					
+					//inner_board.offset({top: 50});
+					//inner_board.offset({left: 50});
 					console.log("@@@@");
 					
-					//console.log("##");
 				}
 				
 				$(obj).offset({top: y - real_distance_y});
@@ -269,7 +311,6 @@ function zzz(obj){
 }
 
 function fn_enterDiv(obj){
-	//console.log(obj);
 	if(obj.id == "inner_board"){
 		nowInnerObject = obj;
 	}else{
